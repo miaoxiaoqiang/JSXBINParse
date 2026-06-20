@@ -1,2 +1,2 @@
 # JSXBINParse
-convert jsxbin to jsx
+C# with Winform provider GUI to convert jsxbin to jsx
