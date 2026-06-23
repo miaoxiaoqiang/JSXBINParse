@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F9D46BA-BC41-4903-B066-A239A7360D9B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JsxBinParser</RootNamespace>
+    <AssemblyName>JsxBinParser</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>JsxBinParser.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Beautifier\Beautifier.cs" />
+    <Compile Include="Core\Beautifier\BeautifierFlags.cs" />
+    <Compile Include="Core\Beautifier\BeautifierOptions.cs" />
+    <Compile Include="Core\Beautifier\BraceStyle.cs" />
+    <Compile Include="Core\Common.cs" />
+    <Compile Include="Core\deobfuscation.cs" />
+    <Compile Include="Core\Decoders.cs" />
+    <Compile Include="Core\Jsxer.cs" />
+    <Compile Include="Core\Nodes\AstNode.cs" />
+    <Compile Include="Core\Nodes\BinaryExpression.cs" />
+    <Compile Include="Core\Nodes\EmptyExpression.cs" />
+    <Compile Include="Core\Nodes\ListExpression.cs" />
+    <Compile Include="Core\Nodes\LocalAssignmentExpression.cs" />
+    <Compile Include="Core\Nodes\AssignmentExpression.cs" />
+    <Compile Include="Core\Nodes\ArrayExpression.cs" />
+    <Compile Include="Core\Nodes\BreakStatement.cs" />
+    <Compile Include="Core\Nodes\ConstantLiteral.cs" />
+    <Compile Include="Core\Nodes\ConstAssignment.cs" />
+    <Compile Include="Core\Nodes\DebuggerStatement.cs" />
+    <Compile Include="Core\Nodes\DoWhileStatement.cs" />
+    <Compile Include="Core\Nodes\ExpressionStatement.cs" />
+    <Compile Include="Core\Nodes\ForInStatement.cs" />
+    <Compile Include="Core\Nodes\ForStatement.cs" />
+    <Compile Include="Core\Nodes\FunctionExpression.cs" />
+    <Compile Include="Core\Nodes\Identifier.cs" />
+    <Compile Include="Core\Nodes\IfStatement.cs" />
+    <Compile Include="Core\Nodes\IndexingExpression.cs" />
+    <Compile Include="Core\Nodes\FunctionDeclaration.cs" />
+    <Compile Include="Core\Nodes\LocalUpdateExpression.cs" />
+    <Compile Include="Core\Nodes\LogicalExpression.cs" />
+    <Compile Include="Core\Nodes\MemberExpression.cs" />
+    <Compile Include="Core\Nodes\CallExpression.cs" />
+    <Compile Include="Core\Nodes\VoidExpression.cs" />
+    <Compile Include="Core\Nodes\WhileStatement.cs" />
+    <Compile Include="Core\Nodes\WithStatement.cs" />
+    <Compile Include="Core\Nodes\XMLConstantExpression.cs" />
+    <Compile Include="Core\Nodes\XMLDescendantsExpression.cs" />
+    <Compile Include="Core\Nodes\XMLPredicateExpression.cs" />
+    <Compile Include="Core\Nodes\XMLQualifiedNameExpression.cs" />
+    <Compile Include="Core\Nodes\XMLUnaryRefExpression.cs" />
+    <Compile Include="Core\Nodes\UpdateExpression.cs" />
+    <Compile Include="Core\Nodes\TernaryExpression.cs" />
+    <Compile Include="Core\Nodes\ThisExpression.cs" />
+    <Compile Include="Core\Nodes\ThrowStatement.cs" />
+    <Compile Include="Core\Nodes\TryStatement.cs" />
+    <Compile Include="Core\Nodes\UnaryExpression.cs" />
+    <Compile Include="Core\Nodes\UnaryRefExpression.cs" />
+    <Compile Include="Core\Nodes\SwitchStatement.cs" />
+    <Compile Include="Core\Nodes\RegExpLiteral.cs" />
+    <Compile Include="Core\Nodes\ReturnStatement.cs" />
+    <Compile Include="Core\Nodes\SimpleForStatement.cs" />
+    <Compile Include="Core\Nodes\StatementList.cs" />
+    <Compile Include="Core\Nodes\Program.cs" />
+    <Compile Include="Core\Nodes\ObjectExpression.cs" />
+    <Compile Include="Core\Nodes\LocalIdentifier.cs" />
+    <Compile Include="Core\Nodes\NodeType.cs" />
+    <Compile Include="Core\Reader.cs" />
+    <Compile Include="Core\Util.cs" />
+    <Compile Include="ExplorerHelper.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Core\Nodes\INode.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JSXBINFile.cs" />
+    <Compile Include="Core\Model\TreeStructure.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResImage.cs" />
+    <Compile Include="Controls\ToolStripCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreeForm.Designer.cs">
+      <DependentUpon>TreeForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeForm.resx">
+      <DependentUpon>TreeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include=".editorconfig" />
+    <None Include="JsxBinParser.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\Images\AppIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Convertert.png" />
+    <None Include="Resources\Images\Error.png" />
+    <None Include="Resources\Images\Success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Analyze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\AddFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\AddFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Init.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\ClearAllSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\ClearData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\CancelSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\ClearMsg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Tree.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
